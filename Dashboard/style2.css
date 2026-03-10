@@ -1,0 +1,40 @@
+/* Container da Tabela */
+.table-responsive {
+    background: #f8fafc;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+}
+
+/* Tabela */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Cabeçalho Profissional */
+th {
+    background: linear-gradient(135deg, #2563eb, #1e40af);
+    color: white;
+    padding: 14px;
+    text-align: left;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Células de Dados */
+td {
+    padding: 12px 14px;
+    border-bottom: 1px solid #e5e7eb;
+    font-size: 14px;
+    color: #374151;
+}
+
+/* Efeito ao passar o mouse */
+tr:hover {
+    background-color: #f1f5f9;
+    transition: 0.2s;
+}

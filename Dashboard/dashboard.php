@@ -17,11 +17,11 @@
 <h2>🚀 Meu Painel</h2>
 
 <ul class="menu">
-<li>🏠 Dashboard</li>
-<li>👤 Usuários</li>
-<li>💰 Vendas</li>
-<li>📊 Estatísticas</li>
-<li>⚙️ Configurações</li>
+<li><a href="dashboard.php">🏠 Dashboard</a></li>
+<li><a href="usuarios.php">👤 Usuários</a></li>
+<li><a href="vendas.php">💰 Vendas</a></li>
+<li><a href="estatisticas.php">📊 Estatísticas</a></li>
+<li><a href="configuracoes.php">⚙️ Configurações</a></li>
 </ul>
 
 </div>
@@ -41,22 +41,22 @@
 
 <div class="card">
 <h3>Usuários</h3>
-<p>1.245</p>
+<p>1,5</p>
 </div>
 
 <div class="card">
 <h3>Vendas</h3>
-<p>R$ 32.500</p>
+<p>R$200,000</p>
 </div>
 
 <div class="card">
 <h3>Pedidos</h3>
-<p>320</p>
+<p>3200</p>
 </div>
 
 <div class="card">
 <h3>Visitas</h3>
-<p>8.932</p>
+<p>todas</p>
 </div>
 
 </div>
