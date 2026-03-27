@@ -1,3 +1,3 @@
 <footer class="footer">
-    <p>© 2026 - Sistema Dashboard</p>
+    <p>© 2026 - ADS Dashboard</p>
 </footer>

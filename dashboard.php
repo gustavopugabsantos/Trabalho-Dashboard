@@ -29,22 +29,22 @@ $paginaAtual = "dashboard";
 
             <section class="stats-grid">
                 <div class="stat-card">
-                    <h2>120</h2>
+                    <h2>Pra Caramba</h2>
                     <p>Usuários cadastrados</p>
                 </div>
 
                 <div class="stat-card">
-                    <h2>35</h2>
+                    <h2>Suficiente</h2>
                     <p>Pedidos hoje</p>
                 </div>
 
                 <div class="stat-card">
-                    <h2>R$ 4.850</h2>
+                    <h2>R$Muito</h2>
                     <p>Faturamento</p>
                 </div>
 
                 <div class="stat-card">
-                    <h2>8</h2>
+                    <h2>Bastante</h2>
                     <p>Novas mensagens</p>
                 </div>
             </section>
