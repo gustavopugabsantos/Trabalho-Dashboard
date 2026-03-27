@@ -2,11 +2,18 @@
 $usuarioLogado = "Puga";
 $paginaAtual = "categorias";
 
-$categorias = [
-    ["id" => 1, "nome" => "Tecnologia", "descricao" => "Conteúdos sobre sistemas e inovação", "status" => "Ativo"],
-    ["id" => 2, "nome" => "Notícias", "descricao" => "Novidades da plataforma", "status" => "Ativo"],
-    ["id" => 3, "nome" => "Tutoriais", "descricao" => "Guias e passo a passo", "status" => "Inativo"]
-];
+$arquivo = 'categorias.json';
+
+if (!file_exists($arquivo)) {
+    file_put_contents($arquivo, json_encode([]));
+}
+
+$conteudo = file_get_contents($arquivo);
+$categorias = json_decode($conteudo, true);
+
+if (!is_array($categorias)) {
+    $categorias = [];
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -32,7 +39,7 @@ $categorias = [
                     <h2>Gerenciamento de categorias</h2>
                     <p class="panel-subtitle">Organização das categorias do conteúdo</p>
                 </div>
-                <a href="#" class="btn">Nova categoria</a>
+                <a href="nova-categoria.php" class="btn">Nova categoria</a>
             </div>
 
             <div class="table-wrapper">
@@ -46,18 +53,24 @@ $categorias = [
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($categorias as $categoria): ?>
+                        <?php if (empty($categorias)): ?>
                             <tr>
-                                <td><?php echo $categoria["id"]; ?></td>
-                                <td><?php echo $categoria["nome"]; ?></td>
-                                <td><?php echo $categoria["descricao"]; ?></td>
-                                <td>
-                                    <span class="status <?php echo strtolower($categoria["status"]); ?>">
-                                        <?php echo $categoria["status"]; ?>
-                                    </span>
-                                </td>
+                                <td colspan="4">Nenhuma categoria ainda</td>
                             </tr>
-                        <?php endforeach; ?>
+                        <?php else: ?>
+                            <?php foreach ($categorias as $categoria): ?>
+                                <tr>
+                                    <td><?php echo $categoria["id"]; ?></td>
+                                    <td><?php echo htmlspecialchars($categoria["nome"]); ?></td>
+                                    <td><?php echo htmlspecialchars($categoria["descricao"]); ?></td>
+                                    <td>
+                                        <span class="status <?php echo strtolower($categoria["status"]); ?>">
+                                            <?php echo htmlspecialchars($categoria["status"]); ?>
+                                        </span>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
                     </tbody>
                 </table>
             </div>

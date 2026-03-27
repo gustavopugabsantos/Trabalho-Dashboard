@@ -22,7 +22,7 @@ $paginaAtual = "postagens";
         </header>
 
         <section class="panel form-panel">
-            <form action="salvar-postagem.php" method="POST">
+            <form action="postagens.php" method="POST">
                 <div class="form-group">
                     <label for="titulo">Título</label>
                     <input type="text" name="titulo" id="titulo" placeholder="Digite o título" required>
