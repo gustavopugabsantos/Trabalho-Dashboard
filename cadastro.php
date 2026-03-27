@@ -38,6 +38,11 @@ $paginaAtual = "usuarios";
                 </div>
 
                 <div class="form-group">
+                    <label for="Senha">Senha</label>
+                    <input type="password" id="senha" name="senha" placeholder="Digite a Senha" required>
+                </div>
+
+                <div class="form-group">
                     <label for="status">Status</label>
                     <select id="status" name="status" required>
                         <option value="">Selecione</option>
