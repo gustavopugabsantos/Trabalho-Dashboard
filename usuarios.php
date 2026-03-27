@@ -4,9 +4,9 @@ $paginaAtual = "usuarios";
 
 $usuarios = [
     ["id" => 1, "nome" => "Gustavo Puga", "email" => "gustavo@email.com", "cargo" => "Administrador", "status" => "Ativo"],
-    ["id" => 2, "nome" => "João Amaral", "email" => "joao@email.com", "cargo" => "Boiola", "status" => "Ativo"],
-    ["id" => 3, "nome" => "Kayky Bola", "email" => "maria@email.com", "cargo" => "Corno", "status" => "Inativo"],
-    ["id" => 4, "nome" => "Guilherme Acala", "email" => "carlos@email.com", "cargo" => "Pau Mandado", "status" => "Ativo"]
+    ["id" => 2, "nome" => "João Silva", "email" => "joao@email.com", "cargo" => "Editor", "status" => "Ativo"],
+    ["id" => 3, "nome" => "Kayky Souza", "email" => "kayky@email.com", "cargo" => "Autor", "status" => "Inativo"],
+    ["id" => 4, "nome" => "Guilherme Lima", "email" => "guilherme@email.com", "cargo" => "Moderador", "status" => "Ativo"]
 ];
 ?>
 <!DOCTYPE html>
@@ -33,7 +33,6 @@ $usuarios = [
                     <h2>Gerenciamento de usuários</h2>
                     <p class="panel-subtitle">Controle, edição e visualização de usuários cadastrados</p>
                 </div>
-                <a href="cadastro.php" class="btn">Cadastrar usuário</a>
             </div>
 
             <div class="table-wrapper">

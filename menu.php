@@ -12,8 +12,13 @@
         </nav>
     </div>
 
-    <div class="user-box">
-        <span>Logado como:</span>
-        <strong><?php echo $usuarioLogado; ?></strong>
+    <div class="sidebar-bottom">
+        <a href="cadastro.php" class="btn sidebar-btn">Cadastrar usuário</a>
+        <a href="logout.php" class="btn sidebar-btn">Sair</a>
+
+        <div class="user-box">
+            <span>Logado como:</span>
+            <strong><?php echo $usuarioLogado ?? 'Usuário'; ?></strong>
+        </div>
     </div>
 </aside>
