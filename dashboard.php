@@ -8,11 +8,11 @@ $paginaAtual = "dashboard";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="layout">
-    <?php include 'componentes/menu.php'; ?>
+    <?php include 'menu.php'; ?>
 
     <main class="content">
         <header class="page-header">
@@ -22,22 +22,22 @@ $paginaAtual = "dashboard";
 
         <section class="stats-grid">
             <div class="stat-card">
-                <h2>120</h2>
+                <h2>702334</h2>
                 <p>Usuários cadastrados</p>
             </div>
 
             <div class="stat-card">
-                <h2>35</h2>
+                <h2>Todos</h2>
                 <p>Pedidos hoje</p>
             </div>
 
             <div class="stat-card">
-                <h2>R$ 4.850</h2>
+                <h2>R$Muito</h2>
                 <p>Faturamento</p>
             </div>
 
             <div class="stat-card">
-                <h2>8</h2>
+                <h2>4568</h2>
                 <p>Novas mensagens</p>
             </div>
         </section>
@@ -52,6 +52,6 @@ $paginaAtual = "dashboard";
     </main>
 </div>
 
-<?php include 'componentes/footer.php'; ?>
+<?php include 'footer.php'; ?>
 </body>
 </html>

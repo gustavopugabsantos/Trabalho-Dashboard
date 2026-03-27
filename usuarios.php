@@ -4,9 +4,9 @@ $paginaAtual = "usuarios";
 
 $usuarios = [
     ["id" => 1, "nome" => "Gustavo Puga", "email" => "gustavo@email.com", "cargo" => "Administrador", "status" => "Ativo"],
-    ["id" => 2, "nome" => "João Silva", "email" => "joao@email.com", "cargo" => "Editor", "status" => "Ativo"],
-    ["id" => 3, "nome" => "Maria Souza", "email" => "maria@email.com", "cargo" => "Autora", "status" => "Inativo"],
-    ["id" => 4, "nome" => "Carlos Lima", "email" => "carlos@email.com", "cargo" => "Moderador", "status" => "Ativo"]
+    ["id" => 2, "nome" => "João Amaral", "email" => "joao@email.com", "cargo" => "Boiola", "status" => "Ativo"],
+    ["id" => 3, "nome" => "Kayky Bola", "email" => "maria@email.com", "cargo" => "Corno", "status" => "Inativo"],
+    ["id" => 4, "nome" => "Guilherme Acala", "email" => "carlos@email.com", "cargo" => "Pau Mandado", "status" => "Ativo"]
 ];
 ?>
 <!DOCTYPE html>
@@ -15,11 +15,11 @@ $usuarios = [
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Usuários</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="layout">
-    <?php include 'componentes/menu.php'; ?>
+    <?php include 'menu.php'; ?>
 
     <main class="content">
         <header class="page-header">
@@ -68,6 +68,6 @@ $usuarios = [
     </main>
 </div>
 
-<?php include 'componentes/footer.php'; ?>
+<?php include 'footer.php'; ?>
 </body>
 </html>
