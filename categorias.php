@@ -1,19 +1,7 @@
 <?php
-$usuarioLogado = "Puga";
+session_start();
+$usuarioLogado = $_SESSION['usuario'] ?? 'Puga';
 $paginaAtual = "categorias";
-
-$arquivo = 'categorias.json';
-
-if (!file_exists($arquivo)) {
-    file_put_contents($arquivo, json_encode([]));
-}
-
-$conteudo = file_get_contents($arquivo);
-$categorias = json_decode($conteudo, true);
-
-if (!is_array($categorias)) {
-    $categorias = [];
-}
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -30,14 +18,14 @@ if (!is_array($categorias)) {
     <main class="content">
         <header class="page-header">
             <h1>Categorias</h1>
-            <p>Lista de categorias cadastradas</p>
+            <p>CRUD de categorias salvo no localStorage</p>
         </header>
 
         <section class="panel">
             <div class="panel-header">
                 <div>
                     <h2>Gerenciamento de categorias</h2>
-                    <p class="panel-subtitle">Organização das categorias do conteúdo</p>
+                    <p class="panel-subtitle">Crie, edite e exclua categorias</p>
                 </div>
                 <a href="nova-categoria.php" class="btn">Nova categoria</a>
             </div>
@@ -50,28 +38,10 @@ if (!is_array($categorias)) {
                             <th>Nome</th>
                             <th>Descrição</th>
                             <th>Status</th>
+                            <th>Ações</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <?php if (empty($categorias)): ?>
-                            <tr>
-                                <td colspan="4">Nenhuma categoria ainda</td>
-                            </tr>
-                        <?php else: ?>
-                            <?php foreach ($categorias as $categoria): ?>
-                                <tr>
-                                    <td><?php echo $categoria["id"]; ?></td>
-                                    <td><?php echo htmlspecialchars($categoria["nome"]); ?></td>
-                                    <td><?php echo htmlspecialchars($categoria["descricao"]); ?></td>
-                                    <td>
-                                        <span class="status <?php echo strtolower($categoria["status"]); ?>">
-                                            <?php echo htmlspecialchars($categoria["status"]); ?>
-                                        </span>
-                                    </td>
-                                </tr>
-                            <?php endforeach; ?>
-                        <?php endif; ?>
-                    </tbody>
+                    <tbody id="categorias-tbody"></tbody>
                 </table>
             </div>
         </section>
@@ -79,5 +49,6 @@ if (!is_array($categorias)) {
 </div>
 
 <?php include 'footer.php'; ?>
+<script src="app.js"></script>
 </body>
 </html>

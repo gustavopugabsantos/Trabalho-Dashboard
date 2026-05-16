@@ -29,36 +29,44 @@ $paginaAtual = "dashboard";
 
             <section class="stats-grid">
                 <div class="stat-card">
-                    <h2>Pra Caramba</h2>
+                    <h2 id="total-usuarios">0</h2>
                     <p>Usuários cadastrados</p>
                 </div>
 
                 <div class="stat-card">
-                    <h2>Suficiente</h2>
-                    <p>Pedidos hoje</p>
+                    <h2 id="total-postagens">0</h2>
+                    <p>Postagens cadastradas</p>
                 </div>
 
                 <div class="stat-card">
-                    <h2>R$Muito</h2>
-                    <p>Faturamento</p>
+                    <h2 id="total-categorias">0</h2>
+                    <p>Categorias cadastradas</p>
                 </div>
 
                 <div class="stat-card">
-                    <h2>Bastante</h2>
-                    <p>Novas mensagens</p>
+                    <h2 id="usuarios-ativos">0</h2>
+                    <p>Usuários ativos</p>
                 </div>
             </section>
 
             <section class="panel">
-                <h2>Resumo</h2>
-                <p>
-                    Essa é a página principal da dashboard. Aqui você pode colocar gráficos,
-                    relatórios, métricas e atalhos do sistema.
-                </p>
+                <h2>Meta da Dashboard</h2>
+                <p class="panel-subtitle">Crie uma meta para esse mês!</p>
+
+                <form id="goal-form" class="inline-form">
+                    <input type="text" id="goal-input" placeholder="Ex: bater 100 postagens este mês" required>
+                    <button type="submit" class="btn">Salvar meta</button>
+                </form>
+
+                <div class="goal-box">
+                    <strong>Meta atual:</strong>
+                    <span id="goal-result">Nenhuma meta cadastrada</span>
+                </div>
             </section>
         </main>
     </div>
 
     <?php require_once __DIR__ . '/footer.php'; ?>
+    <script src="app.js"></script>
 </body>
 </html>

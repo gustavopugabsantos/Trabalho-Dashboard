@@ -377,3 +377,54 @@ tr:hover td {
         width: 300px;
     }
 }
+.table-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.btn-small {
+    min-width: 92px;
+    padding: 9px 12px;
+    border-radius: 10px;
+    font-size: 0.85rem;
+}
+
+.btn-danger {
+    background: linear-gradient(135deg, #dc2626, #ef4444);
+}
+
+.inline-form {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+    margin-top: 18px;
+}
+
+.inline-form input {
+    margin-bottom: 0;
+}
+
+.inline-form button {
+    margin: 0;
+}
+
+.goal-box {
+    margin-top: 18px;
+    padding: 16px;
+    border-radius: 14px;
+    background: rgba(124, 58, 237, 0.12);
+    border: 1px solid rgba(139, 92, 246, 0.16);
+    color: #e9d5ff;
+}
+
+.goal-box strong {
+    color: #ffffff;
+    margin-right: 6px;
+}
+
+@media (max-width: 640px) {
+    .inline-form {
+        grid-template-columns: 1fr;
+    }
+}

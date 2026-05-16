@@ -1,13 +1,7 @@
 <?php
-$usuarioLogado = "Puga";
+session_start();
+$usuarioLogado = $_SESSION['usuario'] ?? 'Puga';
 $paginaAtual = "usuarios";
-
-$usuarios = [
-    ["id" => 1, "nome" => "Gustavo Puga", "email" => "gustavo@email.com", "cargo" => "Administrador", "status" => "Ativo"],
-    ["id" => 2, "nome" => "João Silva", "email" => "joao@email.com", "cargo" => "Editor", "status" => "Ativo"],
-    ["id" => 3, "nome" => "Kayky Souza", "email" => "kayky@email.com", "cargo" => "Autor", "status" => "Inativo"],
-    ["id" => 4, "nome" => "Guilherme Lima", "email" => "guilherme@email.com", "cargo" => "Moderador", "status" => "Ativo"]
-];
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -24,15 +18,16 @@ $usuarios = [
     <main class="content">
         <header class="page-header">
             <h1>Usuários</h1>
-            <p>Lista de usuários cadastrados</p>
+            <p>CRUD de usuários salvo no localStorage</p>
         </header>
 
         <section class="panel">
             <div class="panel-header">
                 <div>
                     <h2>Gerenciamento de usuários</h2>
-                    <p class="panel-subtitle">Controle, edição e visualização de usuários cadastrados</p>
+                    <p class="panel-subtitle">Cadastre, edite e exclua usuários</p>
                 </div>
+                <a href="cadastro.php" class="btn">Novo usuário</a>
             </div>
 
             <div class="table-wrapper">
@@ -44,23 +39,10 @@ $usuarios = [
                             <th>Email</th>
                             <th>Cargo</th>
                             <th>Status</th>
+                            <th>Ações</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <?php foreach ($usuarios as $usuario): ?>
-                            <tr>
-                                <td><?php echo $usuario["id"]; ?></td>
-                                <td><?php echo $usuario["nome"]; ?></td>
-                                <td><?php echo $usuario["email"]; ?></td>
-                                <td><?php echo $usuario["cargo"]; ?></td>
-                                <td>
-                                    <span class="status <?php echo strtolower($usuario["status"]); ?>">
-                                        <?php echo $usuario["status"]; ?>
-                                    </span>
-                                </td>
-                            </tr>
-                        <?php endforeach; ?>
-                    </tbody>
+                    <tbody id="usuarios-tbody"></tbody>
                 </table>
             </div>
         </section>
@@ -68,5 +50,6 @@ $usuarios = [
 </div>
 
 <?php include 'footer.php'; ?>
+<script src="app.js"></script>
 </body>
 </html>

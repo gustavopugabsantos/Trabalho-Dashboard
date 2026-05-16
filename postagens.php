@@ -1,12 +1,7 @@
 <?php
 session_start();
-
-$usuarioLogado = "Puga";
+$usuarioLogado = $_SESSION['usuario'] ?? 'Puga';
 $paginaAtual = "postagens";
-
-if (!isset($_SESSION['postagens'])) {
-    $_SESSION['postagens'] = [];
-}
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -17,21 +12,20 @@ if (!isset($_SESSION['postagens'])) {
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
 <div class="layout">
     <?php include 'menu.php'; ?>
 
     <main class="content">
         <header class="page-header">
             <h1>Postagens</h1>
-            <p>Gerencie e publique conteúdos</p>
+            <p>CRUD de postagens salvo no localStorage</p>
         </header>
 
         <section class="panel">
             <div class="panel-header">
                 <div>
                     <h2>Gerenciamento de postagens</h2>
-                    <p class="panel-subtitle">Crie novas publicações e veja a lista abaixo</p>
+                    <p class="panel-subtitle">Crie, edite e exclua publicações</p>
                 </div>
                 <a href="nova-postagem.php" class="btn">Nova postagem</a>
             </div>
@@ -43,23 +37,10 @@ if (!isset($_SESSION['postagens'])) {
                             <th>ID</th>
                             <th>Título</th>
                             <th>Conteúdo</th>
+                            <th>Ações</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <?php if (empty($_SESSION['postagens'])): ?>
-                            <tr>
-                                <td colspan="3">Nenhuma postagem ainda</td>
-                            </tr>
-                        <?php else: ?>
-                            <?php foreach ($_SESSION['postagens'] as $post): ?>
-                                <tr>
-                                    <td><?php echo $post['id']; ?></td>
-                                    <td><?php echo htmlspecialchars($post['titulo']); ?></td>
-                                    <td><?php echo htmlspecialchars($post['conteudo']); ?></td>
-                                </tr>
-                            <?php endforeach; ?>
-                        <?php endif; ?>
-                    </tbody>
+                    <tbody id="postagens-tbody"></tbody>
                 </table>
             </div>
         </section>
@@ -67,5 +48,6 @@ if (!isset($_SESSION['postagens'])) {
 </div>
 
 <?php include 'footer.php'; ?>
+<script src="app.js"></script>
 </body>
 </html>

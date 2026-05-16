@@ -1,5 +1,6 @@
 <?php
-$usuarioLogado = "Puga";
+session_start();
+$usuarioLogado = $_SESSION['usuario'] ?? 'Puga';
 $paginaAtual = "postagens";
 ?>
 <!DOCTYPE html>
@@ -11,18 +12,17 @@ $paginaAtual = "postagens";
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
 <div class="layout">
     <?php include 'menu.php'; ?>
 
     <main class="content">
         <header class="page-header">
-            <h1>Nova Postagem</h1>
-            <p>Preencha os dados para publicar um novo conteúdo</p>
+            <h1 data-form-title data-edit-text="Editar Postagem">Nova Postagem</h1>
+            <p>Preencha os dados para salvar no localStorage</p>
         </header>
 
         <section class="panel form-panel">
-            <form action="postagens.php" method="POST">
+            <form id="postagem-form">
                 <div class="form-group">
                     <label for="titulo">Título</label>
                     <input type="text" name="titulo" id="titulo" placeholder="Digite o título" required>
@@ -35,7 +35,7 @@ $paginaAtual = "postagens";
 
                 <div class="actions">
                     <a href="postagens.php" class="btn btn-secondary">Cancelar</a>
-                    <button type="submit" class="btn">Publicar</button>
+                    <button type="submit" class="btn" data-edit-text="Atualizar">Publicar</button>
                 </div>
             </form>
         </section>
@@ -43,5 +43,6 @@ $paginaAtual = "postagens";
 </div>
 
 <?php include 'footer.php'; ?>
+<script src="app.js"></script>
 </body>
 </html>

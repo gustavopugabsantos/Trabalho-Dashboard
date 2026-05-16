@@ -1,5 +1,6 @@
 <?php
-$usuarioLogado = "Puga";
+session_start();
+$usuarioLogado = $_SESSION['usuario'] ?? 'Puga';
 $paginaAtual = "usuarios";
 ?>
 <!DOCTYPE html>
@@ -7,7 +8,7 @@ $paginaAtual = "usuarios";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastrar Usuário</title>
+    <title>Novo Usuário</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -16,36 +17,30 @@ $paginaAtual = "usuarios";
 
     <main class="content">
         <header class="page-header">
-            <h1>Cadastrar Usuário</h1>
-            <p>Preencha os dados abaixo para cadastrar um novo usuário</p>
+            <h1 data-form-title data-edit-text="Editar Usuário">Novo Usuário</h1>
+            <p>Preencha os dados para salvar no localStorage</p>
         </header>
 
         <section class="panel form-panel">
-            <form action="insere-usuario.php" method="POST">
+            <form id="usuario-form">
                 <div class="form-group">
                     <label for="nome">Nome</label>
-                    <input type="text" id="nome" name="nome" placeholder="Digite o nome do usuário" required>
+                    <input type="text" name="nome" id="nome" placeholder="Digite o nome" required>
                 </div>
 
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" id="email" name="email" placeholder="Digite o email" required>
+                    <input type="email" name="email" id="email" placeholder="Digite o e-mail" required>
                 </div>
 
                 <div class="form-group">
                     <label for="cargo">Cargo</label>
-                    <input type="text" id="cargo" name="cargo" placeholder="Digite o cargo" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="Senha">Senha</label>
-                    <input type="password" id="senha" name="senha" placeholder="Digite a Senha" required>
+                    <input type="text" name="cargo" id="cargo" placeholder="Ex: Administrador" required>
                 </div>
 
                 <div class="form-group">
                     <label for="status">Status</label>
-                    <select id="status" name="status" required>
-                        <option value="">Selecione</option>
+                    <select name="status" id="status">
                         <option value="Ativo">Ativo</option>
                         <option value="Inativo">Inativo</option>
                     </select>
@@ -53,7 +48,7 @@ $paginaAtual = "usuarios";
 
                 <div class="actions">
                     <a href="usuarios.php" class="btn btn-secondary">Cancelar</a>
-                    <button type="submit" class="btn">Salvar usuário</button>
+                    <button type="submit" class="btn" data-edit-text="Atualizar">Salvar</button>
                 </div>
             </form>
         </section>
@@ -61,5 +56,6 @@ $paginaAtual = "usuarios";
 </div>
 
 <?php include 'footer.php'; ?>
+<script src="app.js"></script>
 </body>
 </html>
